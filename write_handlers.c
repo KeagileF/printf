@@ -12,7 +12,7 @@
  *
  * Return: Num of chars printed.
  */
-int handle_write_char(char c, char buffer[],
+int handle_char(char c, char buffer[],
 	int flags, int width, int precision, int size)
 {
 	int i = 0;
