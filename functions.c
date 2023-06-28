@@ -139,7 +139,7 @@ int print_int(va_list types, char buffer[],
 
 	i++;
 
-	return (write_num(is_negative, i, buffer, flags, width, precision, size));
+	return (handle_number(is_negative, i, buffer, flags, width, precision, size));
 }
 
 /************************* PRINT BINARY *************************/
@@ -170,17 +170,17 @@ int print_binary(va_list types, char buffer[],
 	n = va_arg(types, unsigned int);
 	m = 2147483648; /* (2 ^ 31) */
 	a[0] = n / m;
-	for (y = 1; y < 32; i++)
+	for (y = 1; y < 32; y++)
 	{
 		m /= 2;
 		a[y] = (n / m) % 2;
 	}
-	for (y = 0, sum = 0, count = 0; y < 32; i++)
+	for (y = 0, sum = 0, count = 0; y < 32; y++)
 	{
 		sum += a[y];
 		if (sum || y == 31)
 		{
-			char z = '0' + a[i];
+			char z = '0' + a[y];
 
 			write(1, &z, 1);
 			count++;
