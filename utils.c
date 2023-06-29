@@ -2,7 +2,7 @@
 
 /**
  * printable - A func that checks if a char is printable
- * @c: Char to be checked
+ * @c: Char to be checkedd
  *
  * Return: 1 if printable 0 otherwise
  */
