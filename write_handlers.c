@@ -4,7 +4,7 @@
 /**
  * handle_char - A func that Prints a string
  * @c: char.
- * @buffer: Buffer array to handling the print
+ * @buffer: Buffer array to handling the printt
  * @flags:  checking the active flags.
  * @width: width.
  * @precision: precision
