@@ -2,7 +2,7 @@
 
 /**
  * handle_size - A func that checks the size of an argument
- * @format: Formatted string
+ * @format: Formatted stringg
  * @i: arg to be printed.
  *
  * Return: size.
