@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * get_print - A func that Prints an argument
+ * get_print - A func that Prints an argumentt
  * based on its type
  * @fmt: Formatted string
  * @list: Arguments list
