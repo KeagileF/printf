@@ -6,7 +6,7 @@
  * @types: List of arguments
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
- * @width: Confirms width
+ * @width: Confirms width.
  * @precision: Precision specification
  * @size: Size specifier
  * Return: Number of characters to be printed.
@@ -30,7 +30,7 @@ int print_unsigned(va_list types, char buffer[],
 		num /= 10;
 	}
 
-	i++;
+	y++;
 
 	return (write_unsgnd(0, y, buffer, flags, width, precision, size));
 }
@@ -50,7 +50,7 @@ int print_octal(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
 
-	int i = BUFF_SIZE - 2;
+	int y = BUFF_SIZE - 2;
 	unsigned long int num = va_arg(types, unsigned long int);
 	unsigned long int init_num = num;
 
@@ -155,7 +155,7 @@ int print_hexa(va_list types, char map_to[], char buffer[],
 		buffer[y--] = '0';
 	}
 
-	i++;
+	y++;
 
 	return (write_unsgnd(0, y, buffer, flags, width, precision, size));
 }

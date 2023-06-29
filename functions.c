@@ -17,7 +17,7 @@ int print_char(va_list types, char buffer[],
 {
 	char c = va_arg(types, int);
 
-	return (handle_write_char(c, buffer, flags, width, precision, size));
+	return (handle_char(c, buffer, flags, width, precision, size));
 }
 /************************* PRINT A STRING *************************/
 /**
@@ -106,7 +106,6 @@ int print_percent(va_list types, char buffer[],
  * @flags:  Calculates active flags
  * @width: Confirms width.
  * @precision: Precision specification
-
  * Return: Number of characters printed
  */
 int print_int(va_list types, char buffer[],
@@ -139,7 +138,7 @@ int print_int(va_list types, char buffer[],
 
 	i++;
 
-	return (write_number(is_negative, i, buffer, flags, width, precision, size));
+	return (handle_number(is_negative, i, buffer, flags, width, precision, size));
 }
 
 /************************* PRINT BINARY *************************/
@@ -149,9 +148,8 @@ int print_int(va_list types, char buffer[],
  * @flags:  Calculates active flags
  * @width: Confirms width.
  * @precision: Precision specification
-
  * @buffer: Buffer array to handle print
- * @size: Size specifier
+ * @size: Size specifier.
  * Return: Numbers of characters to be printed.
  */
 int print_binary(va_list types, char buffer[],
@@ -170,17 +168,17 @@ int print_binary(va_list types, char buffer[],
 	n = va_arg(types, unsigned int);
 	m = 2147483648; /* (2 ^ 31) */
 	a[0] = n / m;
-	for (y = 1; y < 32; i++)
+	for (y = 1; y < 32; y++)
 	{
 		m /= 2;
 		a[y] = (n / m) % 2;
 	}
-	for (y = 0, sum = 0, count = 0; y < 32; i++)
+	for (y = 0, sum = 0, count = 0; y < 32; y++)
 	{
 		sum += a[y];
 		if (sum || y == 31)
 		{
-			char z = '0' + a[i];
+			char z = '0' + a[y];
 
 			write(1, &z, 1);
 			count++;

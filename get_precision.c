@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * get_precision – Printing precision is calculated
+ * get_precision – A func that calcs Printing precision
  * @format: Formatted string in which to print the arguments
- * @i: List of arguments to be printed.
+ * @y: List of arguments to be printed.
  * @list: List of arguments.
  *
  * Return: Precision.
@@ -20,7 +20,7 @@ int get_precision(const char *format, int *y, va_list list)
 
 	for (curr_y += 1; format[curr_y] != '\0'; curr_y++)
 	{
-		if (is_digit(format[curr_y]))
+		if (digit(format[curr_y]))
 		{
 			precision *= 10;
 			precision += format[curr_y] - '0';

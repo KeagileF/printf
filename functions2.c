@@ -55,10 +55,10 @@ int print_pointer(va_list types, char buffer[],
 /************************* PRINT NON PRINTABLE *************************/
 /**
  * print_non_printable - Prints ascii codes in hexa of non printable characters
- * @types: List of arguments
+ * @types: List of arguments.
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
- * @width: Confirms width
+ * @width: Confirms width.
  * @precision: Precision specification
  * @size: Size specifier
  * Return: Number of characters to be printed
@@ -79,8 +79,8 @@ int print_non_printable(va_list types, char buffer[],
 
 	while (str[y] != '\0')
 	{
-		if (is_printable(str[y]))
-			buffer[i + offset] = str[y];
+		if (printable(str[y]))
+			buffer[y + offset] = str[y];
 		else
 			offset += append_hexa_code(str[y], buffer, y + offset);
 
@@ -108,7 +108,7 @@ int print_reverse(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
 	char *str;
-	int i, count = 0;
+	int y, count = 0;
 
 	UNUSED(buffer);
 	UNUSED(flags);
@@ -126,7 +126,7 @@ int print_reverse(va_list types, char buffer[],
 	for (y = 0; str[y]; y++)
 		;
 
-	for (y = y- 1; y >= 0; y--)
+	for (y = y - 1; y >= 0; y--)
 	{
 		char z = str[y];
 
@@ -165,7 +165,7 @@ int print_rot13string(va_list types, char buffer[],
 
 	if (str == NULL)
 		str = "(AHYY)";
-	for (y = 0; str[y]; i++)
+	for (y = 0; str[y]; y++)
 	{
 		for (j = 0; in[j]; j++)
 		{
