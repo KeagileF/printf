@@ -3,7 +3,7 @@
 /**
  * handle_width - A func that calcs the width
  * @format: Formatted string to print the arguments.
- * @i: A List of arguments to be printed.
+ * @i: A List of arguments to be printedd.
  * @list: list
  *
  * Return: width.
